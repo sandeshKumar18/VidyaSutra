@@ -49,7 +49,6 @@ async function register(req, res) {
           name: user.name, 
           email: user.email,
           avatar: user.avatar,
-          // 🔥 CRITICAL FIX: Send role so frontend knows if this is an admin
           role: user.role, 
           progress: user.progress || []
         } 

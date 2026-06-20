@@ -1,5 +1,5 @@
 const path = require('path');
-// 🔥 FORCE LOAD .ENV from parent folder if needed
+ // FORCE LOAD .ENV from parent folder if needed
 require('dotenv').config({ path: path.resolve(__dirname, '../../.env') }); 
 require('dotenv').config(); 
 
@@ -24,7 +24,7 @@ const genAI = new GoogleGenerativeAI(rawKey ? rawKey.trim() : "MISSING_KEY");
 const MODEL_NAME = "gemini-flash-latest"; 
 const model = genAI.getGenerativeModel({ model: MODEL_NAME });
 
-console.log(`✅ AI Model Initialized: ${MODEL_NAME}\n`);
+console.log(`AI Model Initialized: ${MODEL_NAME}\n`);
 
 // --- 3. ROBUST JSON EXTRACTOR (Fixes "Invalid JSON" errors) ---
 const extractJSON = (text) => {

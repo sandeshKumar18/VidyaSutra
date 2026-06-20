@@ -4,11 +4,11 @@ require('dotenv').config();
 const API_KEY = process.env.GEMINI_API_KEY;
 
 if (!API_KEY) {
-  console.error("❌ No API Key found in .env");
+  console.error("No API Key found in .env");
   process.exit(1);
 }
 
-console.log(`🔍 Checking available models for key ending in ...${API_KEY.slice(-4)}`);
+console.log(`Checking available models for key ending in ...${API_KEY.slice(-4)}`);
 
 async function getModels() {
   try {
@@ -17,16 +17,16 @@ async function getModels() {
     const data = await response.json();
 
     if (data.error) {
-      console.error("\n❌ API Error:", data.error.message);
+      console.error("\nAPI Error:", data.error.message);
       return;
     }
 
     if (!data.models) {
-      console.error("\n❌ No models returned. Is the 'Generative Language API' enabled in Google Cloud Console?");
+      console.error("\nNo models returned. Is the 'Generative Language API' enabled in Google Cloud Console?");
       return;
     }
 
-    console.log("\n✅ AVAILABLE MODELS FOR YOUR KEY:");
+    console.log("\n AVAILABLE MODELS FOR YOUR KEY:");
     console.log("---------------------------------");
     
     // Filter for "generateContent" capable models
@@ -39,10 +39,10 @@ async function getModels() {
     });
     
     console.log("---------------------------------");
-    console.log("👉 Pick one of the above and use it in your techcontroller.js");
+    console.log(" Pick one of the above and use it in your techcontroller.js");
 
   } catch (err) {
-    console.error("❌ Network Request Failed:", err.message);
+    console.error("Network Request Failed:", err.message);
   }
 }
 
